@@ -52,10 +52,6 @@ class CollectionRepository {
     let query = knex.select("*").from("collection");
 
     if (queryParams?.userId) query.where("userId", queryParams.userId);
-    if (queryParams?.status) query.where("status", queryParams.status);
-    if (queryParams?.collectionTyp)
-      query.where("collectionTyp", queryParams.collectionTyp);
-    if (queryParams?.action) query.where("action", queryParams.action);
     if (queryParams?.startDate && queryParams?.endDate) {
       query.whereBetween("createdAt", [
         new Date(queryParams.startDate),

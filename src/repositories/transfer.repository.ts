@@ -45,19 +45,19 @@ class TransferRepository {
       paginate.page = paginate.page - 1;
     }
 
-    // console.log(queryParams);
-    // const count = await Transfer.count({
-    //   where: { ...queryParams },
-    // });
+    let query = knex.select("*").from("transfer");
 
-    // const transfers = await Transfer.findAll({
-    //   where: { ...queryParams },
-    //   offset: paginate.page,
-    //   limit: paginate.limit,
-    //   order: [["createdAt", "DESC"]],
-    // });
-
-    return { transfers: [], count: 0 };
+    if (queryParams?.userId) query.where("userId", queryParams.userId);
+    if (queryParams?.status) query.where("status", queryParams.status);
+    if (queryParams?.startDate && queryParams?.endDate) {
+      query.whereBetween("createdAt", [
+        new Date(queryParams.startDate),
+        new Date(queryParams.endDate),
+      ]);
+    }
+    query.limit(paginate.limit || 10);
+    const transactions = await query;
+    return { transactions, count: 0 };
   }
 }
 
