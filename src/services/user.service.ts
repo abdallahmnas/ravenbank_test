@@ -49,24 +49,6 @@ class UserService {
     return { users, count };
   };
 
-  // getAllByDate = async (
-  //   creditAccountNumber: string,
-  //   startDate: number,
-  //   endDate: number
-  // ) => {
-  //   const transactions = await userRepository.getAllByDate(
-  //     creditAccountNumber,
-  //     startDate,
-  //     endDate
-  //   );
-  //   return transactions;
-  // };
-
-  // getByRef = async (reference: string) => {
-  //   const users = await userRepository.getUserByRef(reference);
-  //   return users;
-  // };
-
   getByKey = async (key: string, value: any) => {
     const users = await userRepository.getUserByKey(key, value);
     return users;

@@ -1,10 +1,7 @@
 import { AccountInterface } from "../interface/account.interface";
 import { UserInterface } from "../interface/user.interface";
 import accountRepository from "../repositories/account.repository";
-import walletRepository from "../repositories/wallet.repository";
 import { RavenService } from "../service-gateway/RavenGateway";
-import Config from "../utils/config";
-const bcrypt = require("bcrypt");
 
 class AccountService {
   async createAccount(
@@ -50,16 +47,6 @@ class AccountService {
 
     return account;
   };
-  // getAll = async (
-  //   paginate: { limit: number; page: number },
-  //   queryParams: any
-  // ) => {
-  //   const { accounts, count } = await accountRepository.getAllAccounts(
-  //     paginate,
-  //     queryParams
-  //   );
-  //   return { accounts, count };
-  // };
 
   getByKey = async (key: string, value: any) => {
     const accounts = await accountRepository.getAccountByKey(key, value);

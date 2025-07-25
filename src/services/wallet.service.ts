@@ -1,9 +1,4 @@
-import { WalletInterface } from "../interface/wallet.interface";
-import { UserInterface } from "../interface/user.interface";
 import walletRepository from "../repositories/wallet.repository";
-import { RavenService } from "../service-gateway/RavenGateway";
-import Config from "../utils/config";
-const bcrypt = require("bcrypt");
 
 class WalletService {
   async creditUserWallet(userId: number, data: { amount: number }) {
@@ -63,7 +58,6 @@ class WalletService {
       message: "Wallet Debitted",
       data: { previousBalance: currentBalance, newBalance: newBalance },
     };
-    return wallet;
   }
 
   getByKey = async (key: string, value: any) => {
