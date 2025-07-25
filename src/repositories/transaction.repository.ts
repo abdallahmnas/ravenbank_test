@@ -53,8 +53,8 @@ class TransactionRepository {
 
     if (queryParams?.userId) query.where("userId", queryParams.userId);
     if (queryParams?.status) query.where("status", queryParams.status);
-    if (queryParams?.transactionTyp)
-      query.where("transactionTyp", queryParams.transactionTyp);
+    if (queryParams?.transactionType)
+      query.where("transactionType", queryParams.transactionType);
     if (queryParams?.action) query.where("action", queryParams.action);
     if (queryParams?.startDate && queryParams?.endDate) {
       query.whereBetween("createdAt", [

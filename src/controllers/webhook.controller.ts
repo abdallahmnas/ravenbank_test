@@ -86,7 +86,7 @@ class WebhookController {
         netAmount: amount,
         action: "credit",
         remark: source?.narration,
-        transactionType: "transfer",
+        transactionType: "deposit",
         userId: account.userId,
         status: "pending",
         details: JSON.stringify(collectionPayload),
