@@ -22,6 +22,7 @@ const Config = {
     baseUrl: "https://integrations.getravenbank.com/v1/",
     secretKey: process.env.RAVEN_SECRET_KEY as string,
     publicKey: process.env.RAVEN_PUBLIC_KEY as string,
+    webhookSecret: process.env.RAVEN_WEBHOOK_SECRET as string,
   },
 };
 
